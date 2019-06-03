@@ -1,0 +1,5 @@
+hugo server -D --baseUrl="http://192.168.31.238/" --bind="0.0.0.0" --port=8888 --buildDrafts
+
+
+/var/www/html nginx文件目录
+/etc/nginx/sites-available/default nginx配置文件目录
