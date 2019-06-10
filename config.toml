@@ -38,9 +38,9 @@ disqusShortname = ""                 # your discuss shortname
   url = "/about/"
 
 [params]
-  subTitle = "the site subtitle"                                       # site's subTitle  # 网站二级标题
+  subTitle = "Wayne的技术文档"                                       # site's subTitle  # 网站二级标题
   footerSlogan = "我的精神家园"                                          # site's footer slogan  # 网站页脚标语
-  keywords = ["Hugo", "theme","zozo"]                                  # site's keywords  # 网站关键字
+  keywords = ["Hugo", "kubernetes","linux"]                                  # site's keywords  # 网站关键字
   description = "Hugo theme zozo example site."                        # site's description  # 网站描述
 
 # mathjax
@@ -52,14 +52,14 @@ disqusShortname = ""                 # your discuss shortname
 # You can get your appid and appkey from https://leancloud.cn
 # more info please open https://valine.js.org
 [params.valine]
-  enable = false
-  appId = ""
-  appKey = ""
+  enable = true
+  appId = "Q6SnXtDWorCFcgy48RzUYJFK-gzGzoHsz"
+  appKey = "Ja75HqIiTjEkcgk0keaiDKKm"
   placeholder = " "
   visitor = true
 
 [social]
-  github = " "
+  github = "https://github.com/Wayne-Liu"
   twitter = " "
   facebook = " "
   weibo = " "
