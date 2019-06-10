@@ -15,3 +15,5 @@ tags: ["kubernetes","Pod"]
 Metadata字段是API的标识。
     
     Labels就是一组Key-Value字段，从kubernetes中过滤去被控制对象。
+
+<!--more-->
