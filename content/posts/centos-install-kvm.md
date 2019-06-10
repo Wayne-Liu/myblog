@@ -3,6 +3,7 @@ title: "centos7安装kvm并安装ubuntu"
 date: 2019-06-03
 draft: false
 tags: ["linux","kvm"]
+slug: "Centos-Kvm"
 ---
 
 # 检查是否支持kvm
@@ -18,6 +19,9 @@ flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov 
 vi /etc/sysconfig/selinux
 ```
 # 安装 KVM 环境
+
+<!--more-->
+
 通过 yum 安装 kvm 基础包和管理工具 kvm相关安装包及其作用:
 
     qemu-kvm 主要的KVM程序包
