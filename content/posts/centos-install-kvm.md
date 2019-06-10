@@ -6,6 +6,7 @@ tags: ["linux","kvm"]
 ---
 
 # 检查是否支持kvm
+
 ```
 cat /proc/cpuinfo | egrep 'vmx|svm'
 
