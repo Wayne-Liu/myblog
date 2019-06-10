@@ -17,3 +17,8 @@ Metadata字段是API的标识。
     Labels就是一组Key-Value字段，从kubernetes中过滤去被控制对象。
 
 <!--more-->
+# 如何理解Pod
+Pod是一个逻辑概念，Pod在linux和docker container之间并没有真是存在的Pod边界，Pod是一组共享资源的容器组合。
+
+Pod中共享一组Network Namespace，并且可以声明共享同一个Volume.
+
