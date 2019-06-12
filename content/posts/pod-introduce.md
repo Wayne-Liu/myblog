@@ -24,6 +24,7 @@ Pod中共享一组Network Namespace，并且可以声明共享同一个Volume.
 
 # Pod定义的详细信息如下
 ```
+https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/api/core/v1/types.go
 // PodSpec is a description of a pod.
 type PodSpec struct {
 	// List of volumes that can be mounted by containers belonging to the pod.

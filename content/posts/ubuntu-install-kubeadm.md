@@ -20,4 +20,7 @@ k8s.gcr.io/coredns:1.3.1
 
 <!--more-->
 
+# ubuntu安装docker
+kubernetes为了运行Pod中的container，需要安装Container Runtime。
+
 
