@@ -30,6 +30,7 @@ spec:
     command: ["stress"]
     args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"]
 ```
+<!--more-->
 `args`表示Containers启动时提供的参数。`"--vm-bytes", "150M"`申请150M内存资源。
 
 创建Pod
@@ -58,10 +59,81 @@ spec:
     NAME          CPU(cores)   MEMORY(bytes)   
     memory-demo   129m         150Mi 
 
+# 执行超过内存限制启动命令
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: memory-demo-2
+  namespace: mem-example
+spec:
+  containers:
+  - name: memory-demo-2-ctr
+    image: polinux/stress
+    resources:
+      requests:
+        memory: "50Mi"
+      limits:
+        memory: "100Mi"
+    command: ["stress"]
+    args: ["--vm", "1", "--vm-bytes", "250M", "--vm-hang", "1"]
+```
+验证Pod
+
+    kubectl get pod memory-demo-2 --namespace=mem-example
+
+    NAME          READY   STATUS      RESTARTS   AGE
+    memory-demo   0/1     OOMKilled   3          83s
+
+    kubectl get po memory-demo -n mem-example -o yaml
+
+    lastState:
+      terminated:
+        containerID: docker://21a99696eb167a67583974031d51db190daeac103aa33734d3bcbef87bf34c70
+        exitCode: 1
+        finishedAt: 2019-06-15T07:36:52Z
+        reason: OOMKilled
+
+# Memory资源申请大于Node节点资源
+
+```
+pods/resource/memory-request-limit-3.yaml 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: memory-demo-3
+  namespace: mem-example
+spec:
+  containers:
+  - name: memory-demo-3-ctr
+    image: polinux/stress
+    resources:
+      limits:
+        memory: "1000Gi"
+      requests:
+        memory: "1000Gi"
+    command: ["stress"]
+    args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"]
+```
+部署验证结果
+
+    kubectl get pod memory-demo-2 -n mem-example
+
+    NAME            READY   STATUS    RESTARTS   AGE
+    memory-demo-2   0/1     Pending   0          29s
+
+    kubectl describe po memory-demo-2 -n mem-example
+
+    Events:
+    Type     Reason            Age                     From               Message
+    ----     ------            ----                    ----               -------
+    Warning  FailedScheduling  2m24s (x25 over 3m40s)  default-scheduler  0/3 nodes are available: 3 Insufficient memory.
+
+
 
 # 参考文献
-https://stackoverflow.com/questions/53954995/kubernetes-metrics-server-error-from-server-serviceunavailable-the-server-is
 
-https://github.com/kubernetes-incubator/metrics-server/issues/45
+https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/
 
-https://github.com/kubernetes-incubator/metrics-server/issues/188

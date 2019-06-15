@@ -53,3 +53,9 @@ SOLUTION (if you are behind Corporate Proxy) Kube apiserver使用代理的方式
     #结果包含：
     v1beta1.metrics.k8s.io                 kube-system/metrics-server   True
 
+# 参考文献
+https://stackoverflow.com/questions/53954995/kubernetes-metrics-server-error-from-server-serviceunavailable-the-server-is
+
+https://github.com/kubernetes-incubator/metrics-server/issues/45
+
+https://github.com/kubernetes-incubator/metrics-server/issues/188
