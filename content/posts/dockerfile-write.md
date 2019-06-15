@@ -20,6 +20,7 @@ RUN ln -s /usr/share/apache-maven-3.6.1/bin/mvn /usr/bin/mvn && \
     cd /usr/share/git-2.9.0 && make prefix=/usr/local all && make prefix=/usr/local install
 
 ```
+<!--more-->
 
 `store/oracle/serverjre:8` 镜像是oracle Jdk的官方镜像，在Docker Hub搜到后需要点击右边`Proceed to Checkout`按钮，填写注册信息后，才能允许下载，需要先用Docker Hub账号登录。
 
