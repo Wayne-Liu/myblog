@@ -78,6 +78,16 @@ ingress-nginx          LoadBalancer  10.0.220.217   203.0.113.3  80:30100/TCP,44
 
 # 通过主机网络（4.12采用）
 
+```
+kubectl get deploy nginx-ingress-controller -o yaml -n ingress-nginx
+template:
+  spec:
+    hostNetwork: true
+    nodeSelector:
+      kubernetes.io/hostname: node1
+```
+在yaml文件中设置走主机网络，同时设置nodeSelector。
+
 
 
 
